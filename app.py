@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
+import secrets
 
 
 
 
 app = Flask(__name__)
-app.secret_key = "000d88cd9d90036ebdd237eb6b0db000"
+app.secret_key = secrets.token_hex(16)
 
 #SqlAlchemy Database Configuration With Mysql
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Employees.sqlite3'
